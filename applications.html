@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Manage your internship applications with InternTrack.">
+  <title>Applications | InternTrack</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme.css">
+<script src="js/theme.js" defer></script>
+
+</head>
+
+<body class="dashboard-page applications-page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <i class="bi bi-mortarboard-fill me-2"></i>
+      InternTrack<span>.</span>
+    </div>
+
+    <div class="sidebar-subtitle">INTERNSHIP MANAGEMENT</div>
+    <div class="sidebar-label">MAIN MENU</div>
+
+    <a href="dashboard.html">
+      <i class="bi bi-grid-1x2-fill sidebar-icon"></i>
+      Dashboard
+    </a>
+
+    <a href="applications.html" class="active">
+      <i class="bi bi-file-earmark-text sidebar-icon"></i>
+      Applications
+    </a>
+
+    <a href="companies.html">
+      <i class="bi bi-buildings sidebar-icon"></i>
+      Companies
+    </a>
+
+
+<a href="internship-finder.html">
+  <i class="bi bi-stars sidebar-icon"></i>
+  Internship Finder
+</a>
+
+
+    <div class="sidebar-label mt-4">ACCOUNT</div>
+
+    <a href="profile.html">
+      <i class="bi bi-person-circle sidebar-icon"></i>
+      My Profile
+    </a>
+
+    <div class="sidebar-bottom">
+      <a href="#" id="logoutBtn">
+        <i class="bi bi-box-arrow-right sidebar-icon"></i>
+        Logout
+      </a>
+
+      <div class="sidebar-version">
+        InternTrack v1.0
+        <small>IMS566 Individual Project</small>
+      </div>
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <button class="mobile-menu-btn" id="menuBtn"
+      type="button" aria-label="Open navigation"
+      aria-controls="sidebar" aria-expanded="false">
+      <i class="bi bi-list"></i> Menu
+    </button>
+
+    <!-- HEADER -->
+    <header class="top-header dashboard-header">
+      <div>
+        <div class="dashboard-eyebrow">
+          <i class="bi bi-house-door me-1"></i>
+          INTERNSHIP / APPLICATIONS
+        </div>
+        <h1>My Applications</h1>
+        <p>Track, organise and manage your internship opportunities.</p>
+      </div>
+
+      <button type="button"
+        class="btn btn-primary app-add-button"
+        id="addApplicationBtn"
+        data-bs-toggle="modal"
+        data-bs-target="#applicationModal">
+        <i class="bi bi-plus-lg me-2"></i>
+        Add Application
+      </button>
+    </header>
+
+    <!-- HERO -->
+    <section class="app-intro-banner">
+      <div>
+        <span class="app-intro-label">
+          <i class="bi bi-stars me-1"></i>
+          APPLICATION MANAGEMENT
+        </span>
+        <h2>Every opportunity counts.</h2>
+        <p>
+          Organise your applications, monitor their status
+          and stay on top of your internship journey.
+        </p>
+      </div>
+
+      <i class="bi bi-briefcase-fill app-intro-art"
+        aria-hidden="true"></i>
+    </section>
+
+    <!-- STATISTICS -->
+    <div class="app-section-heading">
+      <div>
+        <h3>Application Overview</h3>
+        <p>Your internship application progress at a glance.</p>
+      </div>
+      <span class="app-live-label">
+        <i class="bi bi-activity me-1"></i> Live Statistics
+      </span>
+    </div>
+
+    <section class="row g-3 mb-4">
+
+      <div class="col-sm-6 col-xl-3">
+        <div class="dashboard-stat-card app-summary-card">
+          <div class="stat-top">
+            <div class="stat-icon stat-blue">
+              <i class="bi bi-files"></i>
+            </div>
+            <i class="bi bi-arrow-up-right stat-arrow"></i>
+          </div>
+          <p>Total Applications</p>
+          <h3 id="totalCount">0</h3>
+          <span class="stat-description">All tracked applications</span>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-xl-3">
+        <div class="dashboard-stat-card app-summary-card">
+          <div class="stat-top">
+            <div class="stat-icon stat-orange">
+              <i class="bi bi-hourglass-split"></i>
+            </div>
+            <i class="bi bi-arrow-up-right stat-arrow"></i>
+          </div>
+          <p>Pending</p>
+          <h3 id="pendingCount">0</h3>
+          <span class="stat-description">Awaiting company response</span>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-xl-3">
+        <div class="dashboard-stat-card app-summary-card">
+          <div class="stat-top">
+            <div class="stat-icon stat-purple">
+              <i class="bi bi-person-video3"></i>
+            </div>
+            <i class="bi bi-arrow-up-right stat-arrow"></i>
+          </div>
+          <p>Interview</p>
+          <h3 id="interviewCount">0</h3>
+          <span class="stat-description">Interview stage reached</span>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-xl-3">
+        <div class="dashboard-stat-card app-summary-card">
+          <div class="stat-top">
+            <div class="stat-icon stat-green">
+              <i class="bi bi-check-circle"></i>
+            </div>
+            <i class="bi bi-arrow-up-right stat-arrow"></i>
+          </div>
+          <p>Accepted</p>
+          <h3 id="acceptedCount">0</h3>
+          <span class="stat-description">Successful applications</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- APPLICATION RECORDS -->
+    <section class="dashboard-panel application-list-panel">
+
+      <div class="panel-heading">
+        <div>
+          <h4>Application Records</h4>
+          <p>Search, filter and manage all your applications.</p>
+        </div>
+
+        <span class="app-record-label">
+          <i class="bi bi-folder2-open me-1"></i>
+          <span id="recordCount">0</span> Records
+        </span>
+      </div>
+
+      <!-- FILTER BAR -->
+      <div class="app-toolbar">
+        <div class="row g-3 align-items-end">
+
+          <div class="col-lg-7">
+            <label for="searchInput" class="form-label app-filter-label">
+              Search Applications
+            </label>
+
+            <div class="input-group app-search-group">
+              <span class="input-group-text">
+                <i class="bi bi-search"></i>
+              </span>
+
+              <input type="search"
+                id="searchInput"
+                class="form-control"
+                placeholder="Search company, position or location...">
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <label for="statusFilter" class="form-label app-filter-label">
+              Filter by Status
+            </label>
+
+            <select id="statusFilter" class="form-select app-status-select">
+              <option value="All">All Statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="Interview">Interview</option>
+              <option value="Accepted">Accepted</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+
+          <div class="col-lg-1 col-md-4">
+            <button type="button"
+              id="resetFiltersBtn"
+              class="btn app-reset-button w-100"
+              title="Reset filters"
+              aria-label="Reset filters">
+              <i class="bi bi-arrow-counterclockwise"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="table-responsive app-table-wrapper">
+        <table class="table dashboard-table app-table align-middle">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Position</th>
+              <th>Location</th>
+              <th>Date Applied</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="applicationTable"></tbody>
+        </table>
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div id="emptyMessage" class="app-empty-state" style="display:none">
+        <div class="app-empty-icon">
+          <i class="bi bi-inbox"></i>
+        </div>
+        <h5>No applications found</h5>
+        <p>
+          Add your first internship application or adjust your filters.
+        </p>
+      </div>
+
+      <!-- TABLE FOOTER -->
+      <div class="app-table-footer">
+        <span id="resultInfo">Showing 0 applications</span>
+        <span>
+          <i class="bi bi-shield-check me-1"></i>
+          Saved in your browser
+        </span>
+      </div>
+    </section>
+
+    <!-- TIP -->
+    <section class="app-tip mt-4">
+      <div class="app-tip-icon">
+        <i class="bi bi-lightbulb"></i>
+      </div>
+      <div>
+        <strong>Career Tip</strong>
+        <p class="mb-0">
+          Keep your application statuses updated so you can
+          monitor your internship progress more effectively.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="dashboard-footer">
+      <span>© 2026 InternTrack. All rights reserved.</span>
+      <span>IMS566 Individual Project</span>
+    </footer>
+
+  </main>
+
+  <!-- ADD / EDIT MODAL -->
+  <div class="modal fade" id="applicationModal"
+    tabindex="-1" aria-labelledby="applicationModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content app-modal">
+
+        <div class="modal-header">
+          <div>
+            <div class="app-modal-eyebrow">INTERNSHIP TRACKER</div>
+            <h5 class="modal-title" id="applicationModalLabel">
+              Add New Application
+            </h5>
+          </div>
+
+          <button type="button" class="btn-close"
+            data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <form id="applicationForm">
+
+            <input type="hidden" id="applicationId">
+
+            <div class="mb-3">
+              <label for="companyName" class="form-label">
+                Company Name
+              </label>
+              <input type="text" id="companyName"
+                class="form-control"
+                placeholder="e.g. Maybank" maxlength="100" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="position" class="form-label">
+                Internship Position
+              </label>
+              <input type="text" id="position"
+                class="form-control"
+                placeholder="e.g. IT Intern" maxlength="100" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="location" class="form-label">
+                Location
+              </label>
+              <input type="text" id="location"
+                class="form-control"
+                placeholder="e.g. Kuala Lumpur" maxlength="100" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="applicationDate" class="form-label">
+                Application Date
+              </label>
+              <input type="date" id="applicationDate"
+                class="form-control" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="applicationStatus" class="form-label">
+                Application Status
+              </label>
+              <select id="applicationStatus"
+                class="form-select" required>
+                <option value="Pending">Pending</option>
+                <option value="Interview">Interview</option>
+                <option value="Accepted">Accepted</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </div>
+
+            <div class="app-modal-actions">
+              <button type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal">
+                Cancel
+              </button>
+
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-lg me-1"></i>
+                Save Application
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/applications.js"></script>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+
+    function toggleSidebar(forceClose = false) {
+      const isOpen = forceClose
+        ? false
+        : !sidebar.classList.contains("show");
+
+      sidebar.classList.toggle("show", isOpen);
+      overlay.classList.toggle("show", isOpen);
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+    }
+
+    menuBtn.addEventListener("click", () => toggleSidebar());
+    overlay.addEventListener("click", () => toggleSidebar(true));
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") toggleSidebar(true);
+    });
+
+    document.getElementById("logoutBtn")
+      .addEventListener("click", event => {
+        event.preventDefault();
+        logout();
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Manage your InternTrack personal and academic profile.">
+    <meta name="author" content="IMS566 Student">
+
+    <title>My Profile | InternTrack</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme.css">
+<script src="js/theme.js" defer></script>
+
+</head>
+
+<body class="dashboard-page profile-page">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <i class="bi bi-mortarboard-fill me-2"></i>
+            InternTrack<span>.</span>
+        </div>
+
+        <div class="sidebar-subtitle">
+            INTERNSHIP MANAGEMENT
+        </div>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <a href="dashboard.html">
+            <i class="bi bi-grid-1x2-fill sidebar-icon"></i>
+            Dashboard
+        </a>
+
+        <a href="applications.html">
+            <i class="bi bi-file-earmark-text sidebar-icon"></i>
+            Applications
+        </a>
+
+        <a href="companies.html">
+            <i class="bi bi-buildings sidebar-icon"></i>
+            Companies
+        </a>
+
+
+<a href="internship-finder.html">
+  <i class="bi bi-stars sidebar-icon"></i>
+  Internship Finder
+</a>
+
+
+        <div class="sidebar-label mt-4">ACCOUNT</div>
+
+        <a href="profile.html" class="active">
+            <i class="bi bi-person-circle sidebar-icon"></i>
+            My Profile
+        </a>
+
+        <div class="sidebar-bottom">
+            <a href="#" id="logoutBtn">
+                <i class="bi bi-box-arrow-right sidebar-icon"></i>
+                Logout
+            </a>
+
+            <div class="sidebar-version">
+                InternTrack v1.0
+                <small>IMS566 Individual Project</small>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MOBILE OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <button class="mobile-menu-btn"
+                id="menuBtn"
+                type="button"
+                aria-label="Open navigation"
+                aria-controls="sidebar"
+                aria-expanded="false">
+            <i class="bi bi-list"></i> Menu
+        </button>
+
+        <!-- HEADER -->
+        <header class="top-header dashboard-header">
+            <div>
+                <div class="dashboard-eyebrow">
+                    <i class="bi bi-house-door me-1"></i>
+                    ACCOUNT / MY PROFILE
+                </div>
+
+                <h1>My Profile</h1>
+
+                <p>
+                    Manage your personal details, academic information
+                    and profile picture.
+                </p>
+            </div>
+
+            <div class="profile-header-label">
+                <i class="bi bi-person-check me-2"></i>
+                Account Settings
+            </div>
+        </header>
+
+        <!-- PROFILE BANNER -->
+        <section class="profile-banner">
+            <div class="profile-banner-content">
+                <span class="profile-banner-label">
+                    <i class="bi bi-stars me-1"></i>
+                    YOUR INTERNTRACK PROFILE
+                </span>
+
+                <h2>Build your professional identity.</h2>
+
+                <p>
+                    Keep your information updated as you prepare
+                    for your internship and future career.
+                </p>
+            </div>
+
+            <i class="bi bi-person-badge-fill profile-banner-art"
+               aria-hidden="true"></i>
+        </section>
+
+        <section class="row g-4">
+
+            <!-- LEFT: PROFILE SUMMARY -->
+            <div class="col-lg-4">
+
+                <div class="dashboard-panel profile-summary-card">
+
+                    <!-- PROFILE PICTURE -->
+                    <div class="profile-photo-wrapper">
+
+                        <div class="profile-avatar-large"
+                             id="profileAvatar">
+
+                            <i class="bi bi-person-fill"
+                               id="profileAvatarIcon"></i>
+
+                            <img id="profilePicture"
+                                 alt="Your profile picture"
+                                 hidden>
+                        </div>
+
+                        <label for="profileImageInput"
+                               class="profile-camera-button"
+                               title="Change profile picture"
+                               aria-label="Change profile picture">
+                            <i class="bi bi-camera-fill"></i>
+                        </label>
+
+                    </div>
+
+                    <input type="file"
+                           id="profileImageInput"
+                           accept="image/jpeg,image/png,image/webp"
+                           class="visually-hidden">
+
+                    <div class="profile-photo-actions">
+                        <label for="profileImageInput"
+                               class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-upload me-1"></i>
+                            Upload Photo
+                        </label>
+
+                        <button type="button"
+                                id="removeProfilePhoto"
+                                class="btn btn-outline-danger btn-sm"
+                                hidden>
+                            Remove
+                        </button>
+                    </div>
+
+                    <p class="profile-photo-hint">
+                        JPG, PNG or WebP · Maximum 1 MB
+                    </p>
+
+                    <h3 id="profileDisplayName">Student</h3>
+
+                    <p class="profile-role">
+                        <i class="bi bi-mortarboard me-1"></i>
+                        Internship Applicant
+                    </p>
+
+                    <div class="profile-divider"></div>
+
+                    <div class="profile-detail-item">
+                        <div class="profile-detail-icon">
+                            <i class="bi bi-at"></i>
+                        </div>
+
+                        <div>
+                            <small>Username</small>
+                            <strong id="profileDisplayUsername">-</strong>
+                        </div>
+                    </div>
+
+                    <div class="profile-detail-item">
+                        <div class="profile-detail-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+
+                        <div>
+                            <small>Email Address</small>
+                            <strong id="profileDisplayEmail">
+                                Not provided
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="profile-detail-item">
+                        <div class="profile-detail-icon">
+                            <i class="bi bi-book"></i>
+                        </div>
+
+                        <div>
+                            <small>Course / Programme</small>
+                            <strong id="profileDisplayCourse">
+                                Not provided
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="profile-summary-note">
+                        <i class="bi bi-shield-check me-2"></i>
+                        Your profile information is stored in this browser.
+                    </div>
+
+                </div>
+
+                <!-- PROFILE TIP -->
+                <div class="profile-tip-card mt-4">
+                    <div class="profile-tip-icon">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+
+                    <h4>Profile Tip</h4>
+
+                    <p>
+                        A clear profile photo and updated information
+                        help you keep your internship records organised.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: PROFILE FORM -->
+            <div class="col-lg-8">
+
+                <div class="dashboard-panel profile-form-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h4>Edit Profile Information</h4>
+                            <p>
+                                Update your personal and academic details
+                            </p>
+                        </div>
+
+                        <div class="panel-icon">
+                            <i class="bi bi-pencil-square"></i>
+                        </div>
+                    </div>
+
+                    <!-- FEEDBACK MESSAGE -->
+                    <div id="profileMessage"
+                         class="alert"
+                         role="status"
+                         aria-live="polite"
+                         hidden>
+                    </div>
+
+                    <form id="profileForm">
+
+                        <div class="profile-form-section-title">
+                            <i class="bi bi-person-lines-fill me-2"></i>
+                            Personal Information
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label for="profileName"
+                                       class="form-label">
+                                    Full Name
+                                </label>
+
+                                <input type="text"
+                                       id="profileName"
+                                       class="form-control"
+                                       placeholder="Enter your full name"
+                                       required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="profileUsername"
+                                       class="form-label">
+                                    Username
+                                </label>
+
+                                <input type="text"
+                                       id="profileUsername"
+                                       class="form-control"
+                                       readonly>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="profileEmail"
+                                       class="form-label">
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                       id="profileEmail"
+                                       class="form-control"
+                                       placeholder="example@email.com">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="profilePhone"
+                                       class="form-label">
+                                    Phone Number
+                                </label>
+
+                                <input type="tel"
+                                       id="profilePhone"
+                                       class="form-control"
+                                       placeholder="e.g. 0123456789">
+                            </div>
+
+                        </div>
+
+                        <div class="profile-form-section-title mt-4">
+                            <i class="bi bi-mortarboard-fill me-2"></i>
+                            Academic Information
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label for="profileCourse"
+                                       class="form-label">
+                                    Course / Programme
+                                </label>
+
+                                <input type="text"
+                                       id="profileCourse"
+                                       class="form-control"
+                                       placeholder="e.g. Information Systems Management">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="profileUniversity"
+                                       class="form-label">
+                                    University / Institution
+                                </label>
+
+                                <input type="text"
+                                       id="profileUniversity"
+                                       class="form-control"
+                                       placeholder="e.g. Universiti Teknologi MARA">
+                            </div>
+
+                        </div>
+
+                        <div class="profile-form-section-title mt-4">
+                            <i class="bi bi-chat-left-text-fill me-2"></i>
+                            About Me
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="profileBio"
+                                   class="form-label">
+                                Short Biography
+                            </label>
+
+                            <textarea id="profileBio"
+                                      class="form-control"
+                                      rows="5"
+                                      placeholder="Write a short introduction about yourself, your interests and career goals..."></textarea>
+
+                            <div class="form-text">
+                                Share your academic background, interests
+                                and internship goals.
+                            </div>
+                        </div>
+
+                        <div class="profile-form-actions">
+
+                            <span>
+                                <i class="bi bi-info-circle me-1"></i>
+                                Changes are stored in your browser.
+                            </span>
+
+                            <button type="submit"
+                                    class="btn btn-primary profile-save-button">
+                                <i class="bi bi-floppy me-2"></i>
+                                Save Changes
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+            <span>© 2026 InternTrack. All rights reserved.</span>
+            <span>IMS566 Individual Project</span>
+        </footer>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/profile.js"></script>
+
+    <!-- MOBILE SIDEBAR & LOGOUT -->
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("sidebarOverlay");
+
+        function toggleSidebar(forceClose = false) {
+            const isOpen = forceClose
+                ? false
+                : !sidebar.classList.contains("show");
+
+            sidebar.classList.toggle("show", isOpen);
+            overlay.classList.toggle("show", isOpen);
+
+            menuBtn.setAttribute("aria-expanded", String(isOpen));
+        }
+
+        menuBtn.addEventListener("click", function() {
+            toggleSidebar();
+        });
+
+        overlay.addEventListener("click", function() {
+            toggleSidebar(true);
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                toggleSidebar(true);
+            }
+        });
+
+        document.getElementById("logoutBtn")
+            .addEventListener("click", function(event) {
+                event.preventDefault();
+                logout();
+            });
+    </script>
+
+</body>
+</html>

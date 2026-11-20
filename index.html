@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="InternTrack internship application management system">
+    <meta name="author" content="IMS566 Student">
+
+    <title>InternTrack</title>
+
+    <!-- Redirect to the existing login page (relative path, works on GitHub Pages) -->
+    <meta http-equiv="refresh" content="0; url=login.html">
+    <link rel="canonical" href="login.html">
+
+    <!-- Reuse existing styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+
+    <style>
+        body.index-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+        }
+        .index-box i { font-size: 3rem; }
+        .index-box h1 { font-size: 1.75rem; margin: 12px 0 8px; }
+    </style>
+</head>
+<body class="index-page">
+
+    <div class="index-box">
+        <i class="bi bi-mortarboard-fill"></i>
+        <h1>InternTrack</h1>
+        <p>Redirecting to login page...</p>
+        <a href="login.html" class="btn btn-primary">Continue to Login</a>
+    </div>
+
+    <script>
+        // Fallback redirect (login.html already sends logged-in users to dashboard.html)
+        window.location.replace("login.html");
+    </script>
+
+</body>
+</html>

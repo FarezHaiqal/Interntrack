@@ -1,0 +1,332 @@
+
+/* ==========================================
+   INTERNTRACK - LIGHT & DARK MODE
+   Load AFTER css/style.css
+========================================== */
+
+:root[data-theme="light"] {
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --background: #091525;
+    --surface: #11233a;
+    --text: #e6eefb;
+    --muted: #a5b6cc;
+    --border: #2b405c;
+
+    --primary: #70adff;
+    --primary-dark: #e6eefb;
+    --primary-light: #193b61;
+
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* ==========================================
+   THEME SWITCH BUTTON
+========================================== */
+
+.intern-theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 12px 14px;
+    margin: 10px 0;
+
+    border: 1px solid rgba(148, 185, 231, 0.35);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.10);
+    color: #ffffff;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.intern-theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.19);
+    transform: translateY(-1px);
+}
+
+.intern-theme-toggle:focus-visible {
+    outline: 3px solid #80b8ff;
+    outline-offset: 3px;
+}
+
+.intern-theme-floating {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+
+    width: auto;
+    background: #153c70;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================
+   DARK MODE - MAIN BACKGROUND
+========================================== */
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] body.dashboard-page,
+:root[data-theme="dark"] .dashboard-page,
+:root[data-theme="dark"] .main-content,
+:root[data-theme="dark"] .finder-main {
+    background-color: #091525;
+    color: #e6eefb;
+}
+
+/* ==========================================
+   DARK MODE - CARDS & PANELS
+========================================== */
+
+:root[data-theme="dark"] .dashboard-page .dashboard-stat-card,
+:root[data-theme="dark"] .dashboard-page .dashboard-panel,
+:root[data-theme="dark"] .dashboard-page .dashboard-user,
+:root[data-theme="dark"] .dashboard-page .card,
+:root[data-theme="dark"] .dashboard-page .stat-card,
+:root[data-theme="dark"] .dashboard-page .quick-action-card,
+:root[data-theme="dark"] .dashboard-page .finder-search-card,
+:root[data-theme="dark"] .dashboard-page .finder-company-card,
+:root[data-theme="dark"] .dashboard-page .finder-stat-card,
+:root[data-theme="dark"] .dashboard-page .app-empty-state,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .login-card,
+:root[data-theme="dark"] .profile-card {
+    background: #11233a;
+    border-color: #2b405c;
+    color: #e6eefb;
+
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+}
+
+/* ==========================================
+   DARK MODE - HEADINGS
+========================================== */
+
+:root[data-theme="dark"] .dashboard-page h1,
+:root[data-theme="dark"] .dashboard-page h2,
+:root[data-theme="dark"] .dashboard-page h3,
+:root[data-theme="dark"] .dashboard-page h4,
+:root[data-theme="dark"] .dashboard-page h5,
+:root[data-theme="dark"] .dashboard-page .dashboard-header h1,
+:root[data-theme="dark"] .dashboard-page .dashboard-section-heading h3,
+:root[data-theme="dark"] .dashboard-page .dashboard-stat-card h3,
+:root[data-theme="dark"] .dashboard-page .panel-heading h4,
+:root[data-theme="dark"] .dashboard-page .quick-action-card strong,
+:root[data-theme="dark"] .dashboard-page .dashboard-user strong,
+:root[data-theme="dark"] .card h1,
+:root[data-theme="dark"] .card h2,
+:root[data-theme="dark"] .card h3 {
+    color: #f1f6ff;
+}
+
+/* ==========================================
+   DARK MODE - PARAGRAPHS
+========================================== */
+
+:root[data-theme="dark"] .dashboard-page p,
+:root[data-theme="dark"] .dashboard-page small,
+:root[data-theme="dark"] .dashboard-page .stat-description,
+:root[data-theme="dark"] .dashboard-page .dashboard-footer,
+:root[data-theme="dark"] .dashboard-page .company-search-note {
+    color: #a5b6cc;
+}
+
+/* ==========================================
+   KEEP HERO BANNERS CINEMATIC BLUE
+========================================== */
+
+:root[data-theme="dark"] .dashboard-page .dashboard-hero h2,
+:root[data-theme="dark"] .dashboard-page .app-intro-banner h2,
+:root[data-theme="dark"] .dashboard-page .company-intro-banner h2,
+:root[data-theme="dark"] .dashboard-page .finder-hero h2 {
+    color: #ffffff;
+}
+
+:root[data-theme="dark"] .dashboard-page .dashboard-hero p,
+:root[data-theme="dark"] .dashboard-page .app-intro-banner p,
+:root[data-theme="dark"] .dashboard-page .company-intro-banner p {
+    color: #dceaff;
+}
+
+/* ==========================================
+   DARK MODE - TABLES
+========================================== */
+
+:root[data-theme="dark"] .table,
+:root[data-theme="dark"] .dashboard-page .table,
+:root[data-theme="dark"] .dashboard-page .app-table,
+:root[data-theme="dark"] .dashboard-page .company-table {
+    --bs-table-bg: #11233a;
+    --bs-table-color: #e6eefb;
+    --bs-table-border-color: #2b405c;
+
+    color: #e6eefb;
+}
+
+:root[data-theme="dark"] .table thead th,
+:root[data-theme="dark"] .dashboard-page .table thead th,
+:root[data-theme="dark"] .dashboard-page .dashboard-table thead th,
+:root[data-theme="dark"] .dashboard-page .app-table thead th,
+:root[data-theme="dark"] .dashboard-page .company-table thead th {
+    background: #1a304b;
+    color: #b9cce5;
+    border-color: #2b405c;
+}
+
+:root[data-theme="dark"] .table tbody td,
+:root[data-theme="dark"] .dashboard-page .table tbody td,
+:root[data-theme="dark"] .dashboard-page .dashboard-table tbody td {
+    background: #11233a;
+    color: #e6eefb;
+    border-color: #2b405c;
+}
+
+:root[data-theme="dark"] .table tbody tr:hover td,
+:root[data-theme="dark"] .dashboard-page .app-table tbody tr:hover td,
+:root[data-theme="dark"] .dashboard-page .company-table tbody tr:hover td {
+    background: #1a304b;
+}
+
+/* ==========================================
+   DARK MODE - MODALS
+========================================== */
+
+:root[data-theme="dark"] .modal-content,
+:root[data-theme="dark"] .app-modal,
+:root[data-theme="dark"] .company-modal {
+    background: #11233a;
+    color: #e6eefb;
+
+    border: 1px solid #2b405c;
+}
+
+:root[data-theme="dark"] .modal-header,
+:root[data-theme="dark"] .app-modal .modal-header,
+:root[data-theme="dark"] .company-modal .modal-header {
+    background: #1a304b;
+    color: #f1f6ff;
+    border-color: #2b405c;
+}
+
+:root[data-theme="dark"] .modal-title,
+:root[data-theme="dark"] .app-modal .modal-title,
+:root[data-theme="dark"] .company-modal .modal-title {
+    color: #f1f6ff;
+}
+
+:root[data-theme="dark"] .modal-footer {
+    background: #11233a;
+    border-color: #2b405c;
+}
+
+:root[data-theme="dark"] .modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* ==========================================
+   DARK MODE - INPUTS
+========================================== */
+
+:root[data-theme="dark"] .form-control,
+:root[data-theme="dark"] .form-select,
+:root[data-theme="dark"] .input-group-text,
+:root[data-theme="dark"] .applications-page .form-control,
+:root[data-theme="dark"] .applications-page .form-select,
+:root[data-theme="dark"] .companies-page .form-control,
+:root[data-theme="dark"] .companies-page .form-select,
+:root[data-theme="dark"] .app-search-group .input-group-text,
+:root[data-theme="dark"] .company-search-group .input-group-text,
+:root[data-theme="dark"] .company-modal .form-control,
+:root[data-theme="dark"] .company-modal .form-select {
+    background: #0c1b2e;
+    color: #e6eefb;
+    border-color: #38516e;
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+    color: #92a6c1;
+    opacity: 1;
+}
+
+:root[data-theme="dark"] .form-label,
+:root[data-theme="dark"] .app-modal .form-label,
+:root[data-theme="dark"] .company-modal .form-label,
+:root[data-theme="dark"] .app-filter-label,
+:root[data-theme="dark"] .company-filter-label {
+    color: #c5d5e9;
+}
+
+/* ==========================================
+   DARK MODE - TIPS & LABELS
+========================================== */
+
+:root[data-theme="dark"] .dashboard-page .app-tip,
+:root[data-theme="dark"] .dashboard-page .company-tip,
+:root[data-theme="dark"] .dashboard-page .dashboard-section-tag,
+:root[data-theme="dark"] .dashboard-page .app-record-label,
+:root[data-theme="dark"] .dashboard-page .company-record-label {
+    background: #193756;
+    border-color: #355777;
+    color: #c4ddff;
+}
+
+:root[data-theme="dark"] .dashboard-page .app-tip strong,
+:root[data-theme="dark"] .dashboard-page .company-tip strong {
+    color: #e6eefb;
+}
+
+:root[data-theme="dark"] .dashboard-page .app-tip p,
+:root[data-theme="dark"] .dashboard-page .company-tip p {
+    color: #b4c9e4;
+}
+
+:root[data-theme="dark"] .dashboard-page .app-tip-icon,
+:root[data-theme="dark"] .dashboard-page .company-tip-icon {
+    background: #264b74;
+    color: #a5caff;
+}
+
+/* ==========================================
+   DARK MODE - LOGIN
+========================================== */
+
+:root[data-theme="dark"] .login-page .login-card,
+:root[data-theme="dark"] .cinematic-login-card {
+    background: rgba(12, 29, 50, 0.93);
+    color: #e6eefb;
+    border-color: rgba(130, 175, 232, 0.25);
+}
+
+:root[data-theme="dark"] .login-page .login-card h1,
+:root[data-theme="dark"] .login-page .login-card h2 {
+    color: #f1f6ff;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 576px) {
+    .intern-theme-floating {
+        top: 12px;
+        right: 12px;
+        padding: 10px 12px;
+    }
+}

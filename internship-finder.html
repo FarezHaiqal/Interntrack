@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find internship companies based on programme and preferred state">
+    <meta name="author" content="IMS566 Student">
+
+    <title>Internship Finder | InternTrack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Fonts - Same as Dashboard -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme.css">
+<script src="js/theme.js" defer></script>
+
+</head>
+
+<body class="dashboard-page finder-dashboard-page">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+            <i class="bi bi-mortarboard-fill me-2"></i>
+            InternTrack<span>.</span>
+        </div>
+
+        <div class="sidebar-subtitle">
+            INTERNSHIP MANAGEMENT
+        </div>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <a href="dashboard.html">
+            <i class="bi bi-grid-1x2-fill sidebar-icon"></i>
+            Dashboard
+        </a>
+
+        <a href="applications.html">
+            <i class="bi bi-file-earmark-text sidebar-icon"></i>
+            Applications
+        </a>
+
+        <a href="companies.html">
+            <i class="bi bi-buildings sidebar-icon"></i>
+            Companies
+        </a>
+
+        <a href="internship-finder.html" class="active">
+            <i class="bi bi-stars sidebar-icon"></i>
+            Internship Finder
+        </a>
+
+        <div class="sidebar-label mt-4">ACCOUNT</div>
+
+        <a href="profile.html">
+            <i class="bi bi-person-circle sidebar-icon"></i>
+            My Profile
+        </a>
+
+        <div class="sidebar-bottom">
+            <a href="#" id="logoutBtn">
+                <i class="bi bi-box-arrow-right sidebar-icon"></i>
+                Logout
+            </a>
+
+            <div class="sidebar-version">
+                InternTrack v1.0
+                <small>IMS566 Individual Project</small>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- MOBILE OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content dashboard-main">
+
+        <!-- MOBILE MENU -->
+        <button class="mobile-menu-btn"
+                id="menuBtn"
+                type="button"
+                aria-label="Open navigation"
+                aria-controls="sidebar"
+                aria-expanded="false">
+            <i class="bi bi-list"></i> Menu
+        </button>
+
+        <!-- HEADER -->
+        <header class="top-header dashboard-header">
+
+            <div>
+                <div class="dashboard-eyebrow">
+                    <i class="bi bi-house-door me-1"></i>
+                    OVERVIEW / INTERNSHIP FINDER
+                </div>
+
+                <h1>Smart Internship Finder</h1>
+                <p>
+                    Discover companies that match your programme
+                    and preferred location.
+                </p>
+            </div>
+
+            <div class="dashboard-user">
+                <div class="dashboard-avatar">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+
+                <div>
+                    <strong id="userName">Student</strong>
+                    <small>InternTrack Member</small>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- HERO - SAME DASHBOARD STYLE -->
+        <section class="dashboard-hero">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    <i class="bi bi-stars me-1"></i>
+                    SMART INTERNSHIP DISCOVERY
+                </span>
+
+                <h2>
+                    Discover your future,
+                    <br>
+                    one company at a time.
+                </h2>
+
+                <p>
+                    Explore potential internship companies based
+                    on your academic programme and preferred
+                    Malaysian state.
+                </p>
+
+                <a href="#finderSearch" class="hero-button">
+                    Find Companies
+                    <i class="bi bi-arrow-up-right ms-2"></i>
+                </a>
+
+            </div>
+
+            <div class="hero-graphic" aria-hidden="true">
+                <div class="hero-circle hero-circle-one"></div>
+                <div class="hero-circle hero-circle-two"></div>
+
+                <div class="hero-floating-card">
+                    <i class="bi bi-buildings"></i>
+                    <span>Career Discovery</span>
+                    <i class="bi bi-stars"></i>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SEARCH HEADING -->
+        <div class="dashboard-section-heading" id="finderSearch">
+
+            <div>
+                <h3>Find Your Internship Match</h3>
+                <p>
+                    Select your programme and preferred state
+                    to explore suitable organisations.
+                </p>
+            </div>
+
+            <span class="dashboard-section-tag">
+                <i class="bi bi-stars me-1"></i>
+                Smart Matching
+            </span>
+
+        </div>
+
+        <!-- SEARCH FORM -->
+        <section class="dashboard-panel mb-4">
+
+            <div class="panel-heading">
+                <div>
+                    <h4>Search Preferences</h4>
+                    <p>Tell us what you study and where you want to intern.</p>
+                </div>
+
+                <div class="panel-icon">
+                    <i class="bi bi-sliders"></i>
+                </div>
+            </div>
+
+            <form id="finderForm">
+
+                <div class="row g-3">
+
+                    <div class="col-lg-5">
+                        <label for="finderProgramme"
+                               class="form-label fw-semibold">
+                            Academic Programme
+                        </label>
+
+                        <select id="finderProgramme"
+                                class="form-select"
+                                required>
+
+                            <option value="">Select your programme</option>
+                            <option value="information">Information Systems Management</option>
+                            <option value="computer">Computer Science / IT</option>
+                            <option value="business">Business Administration</option>
+                            <option value="finance">Finance / Accounting</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="media">Mass Communication / Media</option>
+                            <option value="design">Graphic Design / Multimedia</option>
+                            <option value="science">Science / Biotechnology</option>
+                            <option value="logistics">Logistics / Supply Chain</option>
+                            <option value="hospitality">Hospitality / Tourism</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <label for="finderState"
+                               class="form-label fw-semibold">
+                            Preferred State
+                        </label>
+
+                        <select id="finderState"
+                                class="form-select"
+                                required>
+
+                            <option value="">Select your state</option>
+                            <option value="all">All Malaysia</option>
+                            <option value="Johor">Johor</option>
+                            <option value="Kedah">Kedah</option>
+                            <option value="Kelantan">Kelantan</option>
+                            <option value="Melaka">Melaka</option>
+                            <option value="Negeri Sembilan">Negeri Sembilan</option>
+                            <option value="Pahang">Pahang</option>
+                            <option value="Perak">Perak</option>
+                            <option value="Perlis">Perlis</option>
+                            <option value="Pulau Pinang">Pulau Pinang</option>
+                            <option value="Sabah">Sabah</option>
+                            <option value="Sarawak">Sarawak</option>
+                            <option value="Selangor">Selangor</option>
+                            <option value="Terengganu">Terengganu</option>
+                            <option value="Kuala Lumpur">Kuala Lumpur</option>
+                            <option value="Putrajaya">Putrajaya</option>
+                            <option value="Labuan">Labuan</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col-lg-3 d-flex align-items-end">
+                        <button type="submit"
+                                class="finder-search-btn w-100">
+
+                            <i class="bi bi-search me-2"></i>
+                            Find Companies
+
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- STATISTICS -->
+        <div class="dashboard-section-heading">
+
+            <div>
+                <h3>Discovery Statistics</h3>
+                <p>A quick overview of your company recommendations.</p>
+            </div>
+
+            <span class="dashboard-section-tag">
+                <i class="bi bi-bar-chart-line me-1"></i>
+                Finder Overview
+            </span>
+
+        </div>
+
+        <section class="row g-3 mb-4">
+
+            <!-- TOTAL COMPANIES -->
+            <div class="col-md-4">
+                <div class="dashboard-stat-card">
+
+                    <div class="stat-top">
+                        <div class="stat-icon stat-blue">
+                            <i class="bi bi-buildings"></i>
+                        </div>
+                        <i class="bi bi-arrow-up-right stat-arrow"></i>
+                    </div>
+
+                    <p>Companies in Database</p>
+                    <h3 id="finderTotal">0</h3>
+
+                    <span class="stat-description">
+                        Available organisations in our sample directory
+                    </span>
+
+                </div>
+            </div>
+
+            <!-- MATCHES -->
+            <div class="col-md-4">
+                <div class="dashboard-stat-card">
+
+                    <div class="stat-top">
+                        <div class="stat-icon stat-green">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <i class="bi bi-arrow-up-right stat-arrow"></i>
+                    </div>
+
+                    <p>Matching Companies</p>
+                    <h3 id="finderMatches">0</h3>
+
+                    <span class="stat-description">
+                        Recommendations based on your preferences
+                    </span>
+
+                </div>
+            </div>
+
+            <!-- SAVED -->
+            <div class="col-md-4">
+                <div class="dashboard-stat-card">
+
+                    <div class="stat-top">
+                        <div class="stat-icon stat-orange">
+                            <i class="bi bi-bookmark-check"></i>
+                        </div>
+                        <i class="bi bi-arrow-up-right stat-arrow"></i>
+                    </div>
+
+                    <p>Saved Recommendations</p>
+                    <h3 id="finderSaved">0</h3>
+
+                    <span class="stat-description">
+                        Companies saved for future reference
+                    </span>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- RESULTS -->
+        <section class="dashboard-panel mb-4">
+
+            <div class="panel-heading finder-results-header">
+
+                <div>
+                    <h4>Recommended Companies</h4>
+                    <p id="finderResultsInfo">
+                        Select your programme and state to get started.
+                    </p>
+                </div>
+
+                <button type="button"
+                        id="finderShowSaved"
+                        class="finder-outline-btn">
+                    <i class="bi bi-bookmarks me-1"></i>
+                    My Saved
+                </button>
+
+            </div>
+
+            <div id="finderResults" class="row g-4">
+
+                <div class="col-12">
+                    <div class="finder-empty">
+
+                        <i class="bi bi-search-heart"></i>
+
+                        <h4>Discover Your Opportunities</h4>
+
+                        <p>
+                            Choose your academic programme and preferred
+                            state to explore potential internship companies.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="finder-disclaimer">
+                <i class="bi bi-info-circle me-1"></i>
+                Recommendations are based on sample company data
+                and industry relevance. Internship vacancies
+                and placements are not guaranteed.
+            </p>
+
+        </section>
+
+        <!-- QUICK ACTIONS -->
+        <section class="dashboard-panel dashboard-actions">
+
+            <div class="panel-heading">
+                <div>
+                    <h4>Quick Actions</h4>
+                    <p>Continue managing your internship journey.</p>
+                </div>
+            </div>
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <a href="companies.html" class="quick-action-card">
+
+                        <div class="quick-icon stat-blue">
+                            <i class="bi bi-buildings"></i>
+                        </div>
+
+                        <div>
+                            <strong>Companies</strong>
+                            <small>Manage your company records</small>
+                        </div>
+
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="col-md-6">
+                    <a href="applications.html" class="quick-action-card">
+
+                        <div class="quick-icon stat-green">
+                            <i class="bi bi-file-earmark-plus"></i>
+                        </div>
+
+                        <div>
+                            <strong>Applications</strong>
+                            <small>Track your internship applications</small>
+                        </div>
+
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+            <span>© 2026 InternTrack. All rights reserved.</span>
+            <span>IMS566 Individual Project</span>
+        </footer>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/internship-finder.js"></script>
+
+    <!-- MOBILE SIDEBAR & LOGOUT -->
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("sidebarOverlay");
+
+        function toggleSidebar(forceClose = false) {
+            const isOpen = forceClose
+                ? false
+                : !sidebar.classList.contains("show");
+
+            sidebar.classList.toggle("show", isOpen);
+            overlay.classList.toggle("show", isOpen);
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+        }
+
+        menuBtn.addEventListener("click", function () {
+            toggleSidebar();
+        });
+
+        overlay.addEventListener("click", function () {
+            toggleSidebar(true);
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                toggleSidebar(true);
+            }
+        });
+
+        document.getElementById("logoutBtn")
+            .addEventListener("click", function (event) {
+                event.preventDefault();
+                if (typeof logout === "function") {
+                    logout();
+                }
+            });
+
+        // Display logged-in user
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof getCurrentUser === "function") {
+                const user = getCurrentUser();
+
+                if (user) {
+                    document.getElementById("userName").textContent =
+                        typeof user === "string"
+                            ? user
+                            : user.fullName || user.name ||
+                              user.username || "Student";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
